@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Database
+        //Database*************************************************************************************
         Database database = new Database(this);
 
 
@@ -51,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
         Log.d("Insert: " , "Inserting............");
         database.addContact(new Contact("Munu","+91 84865 71181"));
         database.addContact(new Contact("Deuta", "+91 98643 31062"));
-        database.addContact(new Contact("Jyotimoy", "+91 87618 30376"));
 
         //show contacts
         List<Contact> contactList = database.getAllContact();
@@ -62,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
             Log.d("Name: ", log);
         }
 
-
+        //*********************************************************************************************
 
         viewPager2 = (ViewPager2) findViewById(R.id.viewpagermine);
         //tabLayout = (TabLayout) findViewById(R.id.tablayout);

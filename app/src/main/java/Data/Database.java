@@ -25,8 +25,8 @@ public class Database extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         //SQL -- Structured Query Language
         String CREATE_CONTACT_TABLE = "CREATE TABLE " + Utils.TABLE_NAME + "("
-                + Utils.KEY_ID + " INTEGER PRIMARY KEY," + Utils.KEY_NAME + "TEXT,"
-                + Utils.KEY_PHONE_NUMBER + "TEXT" + ")";
+                + Utils.KEY_ID + " INTEGER PRIMARY KEY," + Utils.KEY_NAME + " TEXT,"
+                + Utils.KEY_PHONE_NUMBER + " TEXT" + ")";
 
         //With this the database is created
         db.execSQL(CREATE_CONTACT_TABLE);
@@ -60,7 +60,7 @@ public class Database extends SQLiteOpenHelper {
         value.put(Utils.KEY_PHONE_NUMBER, contact.getPhoneNumber());
 
         //we put inside these things in database
-        db.insert(Utils.TABLE_NAME,null,value);
+        db.insert(Utils.TABLE_NAME,null, value);
         db.close();
 
 

@@ -31,7 +31,6 @@ public class Tab2 extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private static final String PREFS_NAME = "myPrefFile";
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -79,23 +78,6 @@ public class Tab2 extends Fragment {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_tab2, container, false);
 
-        Database database = new Database(getActivity().getBaseContext());
-
-
-        //Insert contacts
-        Log.d("Insert: " , "Inserting............");
-        database.addContact(new Contact("Munu","+91 84865 71181"));
-        database.addContact(new Contact("Deuta", "+91 98643 31062"));
-        database.addContact(new Contact("Jyotimoy", "+91 87618 30376"));
-
-        //show contacts
-        List<Contact> contactList = database.getAllContact();
-
-        //to iterate through the contacts we have to look into it
-        for(Contact c: contactList){
-            String log = "ID: " + c.getId() + "Name: " + c.getName() + "Phone No.: " + c.getPhoneNumber();
-            Log.d("Name: ", log);
-        }
 
 
 
