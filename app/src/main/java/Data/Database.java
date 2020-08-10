@@ -71,7 +71,7 @@ public class Database extends SQLiteOpenHelper {
     public Contact getContact(int id){
 
      SQLiteDatabase db = this.getReadableDatabase();
-     Cursor cursor = db.query(Utils.TABLE_NAME,new String[]{ Utils.KEY_ID, Utils.KEY_NAME, Utils.KEY_PHONE_NUMBER },Utils.KEY_ID + "=?"
+     Cursor cursor = db.query(Utils.TABLE_NAME, new String[]{ Utils.KEY_ID, Utils.KEY_NAME, Utils.KEY_PHONE_NUMBER },Utils.KEY_ID + "=?"
              + new String[]{String.valueOf(id)}, null , null, null, null);
 
      if(cursor != null){
@@ -114,6 +114,26 @@ public class Database extends SQLiteOpenHelper {
         }
 
         return contactList;
+
+
+    }
+
+    //update contact Here the update method returns an integer and that is why it will be function of type integer
+    public int updateContact(Contact contact){
+
+        //initialising the database to access it
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        //making a new content values table so as to update or write into the database
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(Utils.KEY_NAME, contact.getName());
+        contentValues.put(Utils.KEY_PHONE_NUMBER, contact.getPhoneNumber());
+
+        //we have to write and update it to the database by using the update method
+        return  db.update(Utils.TABLE_NAME,contentValues,Utils.KEY_ID + "=?", new String[]{String.valueOf(contact.getId())});
+
+
+
 
 
     }

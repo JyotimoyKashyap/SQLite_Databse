@@ -51,15 +51,32 @@ public class MainActivity extends AppCompatActivity {
         Log.d("Insert: " , "Inserting............");
         database.addContact(new Contact("Munu","+91 84865 71181"));
         database.addContact(new Contact("Deuta", "+91 98643 31062"));
+        database.addContact(new Contact("xyirouaf", "+91 79359437405"));
+
 
         //show contacts
-        List<Contact> contactList = database.getAllContact();
+         List<Contact> contactList = database.getAllContact();
 
         //to iterate through the contacts we have to look into it
         for(Contact c: contactList){
             String log = "ID: " + c.getId() + "Name: " + c.getName() + "Phone No.: " + c.getPhoneNumber();
             Log.d("Name: ", log);
         }
+
+        // update contact method --- Here we are making an object of Contact model class because its for only one contact and
+        // here in order to get all the contact we first used a different method and now we are ready to do it one by one
+
+        Contact oneContact = database.getContact(2);
+
+        //update the contact
+        int singleContact = database.updateContact(oneContact);
+        oneContact.setPhoneNumber("+91 98633 31062");
+        oneContact.setName("Jiten Kalita");
+
+        String log = "ID: " + oneContact.getId() + "Name: " + oneContact.getName() + "Phone No.: " + oneContact.getPhoneNumber();
+        Log.d("Update Contact ", log);
+
+
 
         //*********************************************************************************************
 
